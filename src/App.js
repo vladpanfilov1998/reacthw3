@@ -1,22 +1,27 @@
 import {Routes, Route} from "react-router-dom";
+
 import {Layout} from "./components";
-import {PostDetailsPage, PostsPage, UserDetailsPage, UsersPage} from "./pages";
+import {PostsPage, UsersPage} from "./pages";
+import SingleUserPage from "./pages/SingleUserPage/SingleUserPage";
+import SinglePostPage from "./pages/SinglePostPage/SinglePostPage";
 
 const App = () => {
     return (
-        <Routes>
-            <Route path={'/'} element={<Layout/>}>
+        <div>
+            <Routes>
+                <Route path={'/'} element={<Layout/>}>
 
-                <Route path={'users'} element={<UsersPage/>}>
-                    <Route path={':id'} element={<UserDetailsPage/>}/>
+                    <Route path={'users'} element={<UsersPage/>}>
+                        <Route path={':id'} element={<SingleUserPage/>}/>
+                    </Route>
+
+                    <Route path={'posts'} element={<PostsPage/>}>
+                        <Route path={':id'} element={<SinglePostPage/>}/>
+                    </Route>
+
                 </Route>
-
-                <Route path={'posts'} element={<PostsPage/>}>
-                    <Route path={':id'} element={<PostDetailsPage/>}/>
-                </Route>
-
-            </Route>
-        </Routes>
+            </Routes>
+        </div>
     );
 };
 
