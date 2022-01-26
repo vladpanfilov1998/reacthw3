@@ -3,10 +3,10 @@ import {useEffect, useState} from "react";
 import {postService} from "../../services/post.service";
 
 const SinglePostPage = () => {
-    const {userId} = useParams();
+    const {id} = useParams();
     const [post, setPost] = useState(null);
     useEffect(()=>{
-        postService.getById(userId).then(value => setPost({...value}))
+        postService.getById(id).then(value => setPost({...value}))
     }, [])
         return (
        <div>

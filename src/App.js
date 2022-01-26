@@ -5,6 +5,7 @@ import {PostsPage, UsersPage} from "./pages";
 import SingleUserPage from "./pages/SingleUserPage/SingleUserPage";
 import SinglePostPage from "./pages/SinglePostPage/SinglePostPage";
 import {UserPostsPage} from "./components/UserPostsPage/UserPostsPage";
+import UserPostDetails from "./pages/UsersPostDetails/UsersPostDetails";
 
 const App = () => {
     return (
@@ -14,10 +15,10 @@ const App = () => {
 
                     <Route path={'users'} element={<UsersPage/>}/>
                     <Route path={'users/:id'} element={<SingleUserPage/>}/>
-                    <Route path={'users/:id/posts'} element={<SingleUserPage/>}/>
+                    <Route path={'posts/:userId'} element={<UserPostDetails/>}/>
 
                     <Route path={'posts'} element={<PostsPage/>}/>
-                    <Route path={'posts/:userId'} element={<SinglePostPage/>}/>
+                    <Route path={'posts/:id'} element={<SinglePostPage/>}/>
 
                 </Route>
 
