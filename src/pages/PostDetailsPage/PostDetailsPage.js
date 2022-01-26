@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, Outlet} from "react-router-dom";
-import css from "../../App.module.css"
+
 
 
 const PostDetailsPage = ({post: {id, userId, title}}) => {

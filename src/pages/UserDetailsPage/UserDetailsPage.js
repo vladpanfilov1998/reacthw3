@@ -1,18 +1,15 @@
 import React from 'react';
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 
-const UserDetailsPage = ({user: {id, name, username, email, phone, website}}) => {
+const UserDetailsPage = ({user: {id, name}}) => {
     return (
         <div>
-            <div>ID: {id}</div>
+            <div>ID: {id}.</div>
             <div>NAME: {name}</div>
-            <div>USERNAME: {username}</div>
-            <Link>
+            <Link to={id.toString()}>
                 <button>USER DETAILS</button>
             </Link>
-            <div><Outlet/></div>
-
         </div>
     );
 };
