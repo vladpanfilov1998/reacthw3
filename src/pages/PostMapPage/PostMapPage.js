@@ -1,23 +1,21 @@
 import {useEffect, useState} from "react";
 
 import {postService} from "../../services/post.service";
-import {Outlet} from "react-router-dom";
+import {Outlet, useParams} from "react-router-dom";
 import css from "../../App.module.css";
-import {PostDetailsPage} from "../PostDetailsPage/PostDetailsPage";
+import PostMapDetailsPage from "../PostMapDetailsPage/PostMapDetailsPage";
 
 
 
-const PostsPage = () => {
+const PostMapPage = () => {
     const [posts, setPosts] = useState([]);
-
     useEffect(()=>{
         postService.getAll().then(value => setPosts([...value]));
     }, []);
 
     return (
         <div>
-            <h2>Posts</h2>
-            {posts.map(post => <PostDetailsPage key={post.id} post={post}/>)}
+            {posts.map(post => <PostMapDetailsPage key={post.id} post={post}/>)}
             <div className={css.outlet}>
                 <Outlet/>
             </div>
@@ -26,4 +24,4 @@ const PostsPage = () => {
     );
 };
 
-export {PostsPage};
+export default PostMapPage;

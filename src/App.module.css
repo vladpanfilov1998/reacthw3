@@ -24,3 +24,9 @@
 .singlePost {
     margin-left: 150px;
 }
+
+.wraper {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}

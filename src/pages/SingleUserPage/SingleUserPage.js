@@ -1,6 +1,7 @@
-import {Link, useParams} from "react-router-dom";
+import {Link, Outlet, useParams} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import {userService} from "../../services/user.service";
+import css from "../../App.module.css";
 
 const SingleUserPage = () => {
     const {id} = useParams();
@@ -34,6 +35,9 @@ const SingleUserPage = () => {
                     </Link>
                 </div>
             )};
+            <div className={css.outlet}>
+                <Outlet/>
+            </div>
         </div>
 
     );
