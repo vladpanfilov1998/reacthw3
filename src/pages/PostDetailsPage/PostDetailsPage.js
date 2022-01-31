@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 
-const PostDetailsPage = ({post: {id, title}}) => {
+const PostDetailsPage = ({posts: {userId, id, title}}) => {
     return (
         <div>
             <div>Title: {title}</div>

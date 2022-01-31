@@ -1,21 +1,22 @@
 import {useEffect, useState} from "react";
 
 import {commentsService} from "../../services/comments.service";
-import {Outlet} from "react-router-dom";
+import {Outlet, useParams} from "react-router-dom";
 import css from "../../App.module.css";
 import CommentsMapDetailsPage from "../CommentsMapDetailsPage/CommentsMapDetailsPage";
 
 
 
 const CommentsMapPage = () => {
-    const [comments, setComments] = useState([]);
+    const {postId} = useParams();
+    const [comments, setComments] = useState(null);
     useEffect(()=>{
-        commentsService.getAll().then(value => setComments([...value]));
+        commentsService.getById(postId).then(value => setComments({...value}));
     }, []);
 
     return (
         <div>
-            {comments.map(comment => <CommentsMapDetailsPage key={comment.id} comment={comment}/>)}
+            {comments.map(comments => <CommentsMapDetailsPage key={comments.postId} comments={comments}/>)}
             <div className={css.outlet}>
                 <Outlet/>
             </div>

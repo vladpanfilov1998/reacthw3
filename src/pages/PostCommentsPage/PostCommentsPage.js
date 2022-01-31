@@ -4,20 +4,20 @@ import {commentsService} from "../../services/comments.service";
 import css from "../../App.module.css";
 
 const PostCommentsPage = () => {
-    const {id} = useParams();
-    const [comment, setComment] = useState(null);
+    const {postId} = useParams();
+    const [comments, setComments] = useState(null);
       useEffect(()=>{
-          commentsService.getById(id).then(value => setComment({...value}))
+          commentsService.getById(postId).then(value => setComments({...value}))
       }, [])
     return (
         <div>
-            {comment && (
+            {comments && (
                 <div>
-                    <div>PostID: {comment.postId}</div>
-                    <div>ID: {comment.id}</div>
-                    <div>NAME: {comment.name}</div>
-                    <div>email: {comment.email}</div>
-                    <div>Body: {comment.body}</div>
+                    <div>PostID: {comments.postId}</div>
+                    <div>ID: {comments.id}</div>
+                    <div>NAME: {comments.name}</div>
+                    <div>email: {comments.email}</div>
+                    <div>Body: {comments.body}</div>
                 </div>
             )};
             <div className={css.outlet}>

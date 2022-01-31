@@ -4,20 +4,20 @@ import {useEffect, useState} from "react";
 import {commentsService} from "../../services/comments.service";
 
 const PostMapDetailsPage = () => {
-    const {id} = useParams();
-    const [comment, setComment] = useState(null);
+    const {postId} = useParams();
+    const [comments, setComments] = useState(null);
     useEffect(()=>{
-        commentsService.getById(id).then(value => setComment({...value}))
+        commentsService.getById(postId).then(value => setComments({...value}))
     }, [])
     return (
         <div>
-            {comment && (
+            {comments && (
                 <div>
-                    <div>ID: {comment.id}</div>
-                    <div>PostID: {comment.postId}</div>
-                    <div>Name: {comment.name}</div>
-                    <div>email: {comment.email}</div>
-                    <div>Body: {comment.body}</div>
+                    <div>ID: {comments.id}</div>
+                    <div>PostID: {comments.postId}</div>
+                    <div>Name: {comments.name}</div>
+                    <div>email: {comments.email}</div>
+                    <div>Body: {comments.body}</div>
                 </div>
             )}
         </div>

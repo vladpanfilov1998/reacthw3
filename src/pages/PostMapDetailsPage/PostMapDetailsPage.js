@@ -4,10 +4,10 @@ import {useEffect, useState} from "react";
 import {postService} from "../../services/post.service";
 
 const PostMapDetailsPage = () => {
-    const {id} = useParams();
+    const {userId} = useParams();
     const [post, setPost] = useState(null);
     useEffect(()=>{
-        postService.getById(id).then(value => setPost({...value}))
+        postService.getById(userId).then(value => setPost({...value}))
     }, [])
     return (
         <div>
