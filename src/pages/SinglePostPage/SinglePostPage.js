@@ -5,18 +5,18 @@ import css from "../../App.module.css";
 
 const SinglePostPage = () => {
     const {id} = useParams();
-    const [posts, setPosts] = useState(null);
+    const [post, setPost] = useState(null);
     useEffect(()=>{
-        postService.getById(id).then(value => setPosts({...value}))
+        postService.getById(id).then(value => setPost({...value}))
     }, [])
     return (
         <div>
-            {posts && (
+            {post && (
                 <div>
-                    <div>ID: {posts.id}</div>
-                    <div>UserID: {posts.userId}</div>
-                    <div>Title: {posts.title}</div>
-                    <div>Body: {posts.body}</div>
+                    <div>ID: {post.id}</div>
+                    <div>UserID: {post.userId}</div>
+                    <div>Title: {post.title}</div>
+                    <div>Body: {post.body}</div>
                     <Link to={'comments'}>
                         <button>COMMENTS</button>
                     </Link>

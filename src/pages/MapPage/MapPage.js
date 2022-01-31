@@ -17,7 +17,7 @@ const MapPage = () => {
 
     return (
         <div>
-            {post.map(posts => <MapDetailsPage key={posts.id} posts={posts}/>)}
+            {posts.map(posts => <MapDetailsPage key={posts.id} posts={posts}/>)}
             <div>
                 <Outlet/>
             </div>

@@ -1,4 +1,3 @@
-export * from './PostCommentsPage/PostCommentsPage';
 export * from './PostDetailsPage/PostDetailsPage';
 export * from './PostsPage/PostsPage';
 export * from './UserDetailsPage/UserDetailsPage';
@@ -9,5 +8,4 @@ export * from './PostMapPage/PostMapPage';
 export * from './PostMapDetailsPage/PostMapDetailsPage';
 export * from './CommentsMapPage/CommentsMapPage';
 export * from './CommentsMapDetailsPage/CommentsMapDetailsPage';
-export * from './MapPage/MapPage';
-export * from './MapDetailsPage/MapDetailsPage';
+export * from './PostCommentsPage/PostCommentsPage';

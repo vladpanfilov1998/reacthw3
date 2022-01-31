@@ -1,28 +1,17 @@
-
-import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {commentsService} from "../../services/comments.service";
-
-const PostMapDetailsPage = () => {
-    const {postId} = useParams();
-    const [comments, setComments] = useState(null);
-    useEffect(()=>{
-        commentsService.getById(postId).then(value => setComments({...value}))
-    }, [])
+const CommentsMapDetailsPage = ({comment: {id, postId, name, email, body}}) => {
     return (
         <div>
-            {comments && (
-                <div>
-                    <div>ID: {comments.id}</div>
-                    <div>PostID: {comments.postId}</div>
-                    <div>Name: {comments.name}</div>
-                    <div>email: {comments.email}</div>
-                    <div>Body: {comments.body}</div>
-                </div>
-            )}
+            <div>
+                <div>ID: {id}</div>
+                <div>PostID: {postId}</div>
+                <div>Name: {name}</div>
+                <div>email: {email}</div>
+                <div>Body: {body}</div>
+            </div>
+            <hr/>
         </div>
 
     );
 };
 
-export default PostMapDetailsPage
+export default CommentsMapDetailsPage

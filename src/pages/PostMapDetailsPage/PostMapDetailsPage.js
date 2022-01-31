@@ -1,26 +1,14 @@
-
-import {useParams} from "react-router-dom";
-import {useEffect, useState} from "react";
-import {postService} from "../../services/post.service";
-
-const PostMapDetailsPage = () => {
-    const {userId} = useParams();
-    const [post, setPost] = useState(null);
-    useEffect(()=>{
-        postService.getById(userId).then(value => setPost({...value}))
-    }, [])
+const PostMapDetailsPage = ({post: {id, title, body, userId}}) => {
     return (
         <div>
-            {post && (
-                <div>
-                    <div>ID: {post.id}</div>
-                    <div>UserID: {post.userId}</div>
-                    <div>Title: {post.title}</div>
-                    <div>Body: {post.body}</div>
-                </div>
-            )}
+            <div>
+                <div>ID: {id}</div>
+                <div>UserID: {userId}</div>
+                <div>Title: {title}</div>
+                <div>Body: {body}</div>
+            </div>
+            <hr/>
         </div>
-
     );
 };
 

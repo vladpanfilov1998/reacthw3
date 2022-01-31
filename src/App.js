@@ -19,13 +19,13 @@ const App = () => {
 
                     <Route path={'users'} element={<UsersPage/>}>
                         <Route path={':id'} element={<SingleUserPage/>}>
-                            <Route path={'posts'} element={<MapPage/>}/>
+                            <Route path={'posts'} element={<PostMapPage/>}/>
                         </Route>
                     </Route>
 
                     <Route path={'posts'} element={<PostsPage/>}>
                         <Route path={':id'} element={<SinglePostPage/>}>
-                            <Route path={'comments'} element={<PostCommentsPage/>}/>
+                            <Route path={'comments'} element={<CommentsMapPage/>}/>
                         </Route>
                     </Route>
 

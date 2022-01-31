@@ -5,10 +5,10 @@ import css from "../../App.module.css";
 
 const SingleUserPage = () => {
     const {id} = useParams();
-    const [user, setUsers] = useState(null);
+    const [user, setUser] = useState(null);
     useEffect(()=>{
-        userService.getById(id).then(value => setUsers({...value}))
-    }, [])
+        userService.getById(id).then(value => setUser({...value}))
+    }, [id])
     return (
         <div>
             {user && (
